@@ -1,6 +1,6 @@
-# Título del Proyecto
+#Gestor de servicios a clientes 
 
-_Acá va un párrafo que describa lo que es el proyecto_
+_Esta apliacion permite la gestion de ordenes de servicios a clientes_
 
 ## Comenzando 🚀
 
