@@ -2,7 +2,10 @@
 
 _Esta apliacion WEB permite la gestion de ordenes de servicios a clientes_
 
+Propuesta para la realizacion del trabajo practico de la materia
+Arquitectura WEB de la Universidad de Palermo
 
+Marzo 2022
 
 ## Construido con 🛠️
 
@@ -15,7 +18,7 @@ _Esta apliacion WEB permite la gestion de ordenes de servicios a clientes_
 
 * **Nicolás Antonielli** - *Trabajo Inicial* - [nicolasantonielli](https://github.com/nicolasantonielli)
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/ynicolasantonielli/ArquitecturaWeb/contributors) quíenes han participado en este proyecto. 
 
 ## Licencia 📄
 
