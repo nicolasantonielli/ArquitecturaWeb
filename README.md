@@ -9,7 +9,7 @@ _Esta apliacion WEB permite la gestion de ordenes de servicios a clientes_
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Node.js](https://nodejs.org/es/) - Entorno de programación.
-* [Node.js](https://atom.io/) - IDE.
+* [Atom](https://atom.io/) - IDE.
 * [Arch Linux](https://archlinux.org/) - Usado como SO de desarollo.
 
 
