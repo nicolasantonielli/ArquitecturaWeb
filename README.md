@@ -6,8 +6,6 @@ _Esta apliacion WEB permite la gestion de ordenes de servicios a clientes_
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [Node.js](https://nodejs.org/es/) - Entorno de programación.
 * [Atom](https://atom.io/) - IDE.
 * [Arch Linux](https://archlinux.org/) - Usado como SO de desarollo.
@@ -26,6 +24,6 @@ Este proyecto está bajo la Licencia (GNU General Public License v3) - mira el a
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
+* Invita con un café ☕ a alguien del equipo. 
 * Da las gracias públicamente 🤓.
 
