@@ -5,6 +5,26 @@ const clientsService = require('./services/tecnicos');
 
 const app = express();
 
+// start server
+
+app.listen(process.env.PORT || 8000, function () {
+
+    console.log('API andando con express...');
+});
+
+
+// configuracion de pug
+
+app.set('views','./vistas')
+app.set('view engine','pug')
+
+
+// Cinfiguracion de archivos estaticos
+app.use(express.static('./vistas'))
+app.use(express.static('./src'))
+app.use(express.static('./css'))
+
+
 // parse body as json
 
 app.use(bodyParser.json());
@@ -26,11 +46,11 @@ app.get('/', async (req, res) => {
 
     //let list = [];
 
-   // clients.forEach((c) => {
+    // clients.forEach((c) => {
 
-     //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
+    //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
 
-   // });
+    // });
 
     res.send(
         `<html>
@@ -52,11 +72,11 @@ app.get('/maria', async (req, res) => {
 
     //let list = [];
 
-   // clients.forEach((c) => {
+    // clients.forEach((c) => {
 
-     //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
+    //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
 
-   // });
+    // });
 
     res.send(
         `<html>
@@ -77,10 +97,5 @@ app.get('/maria', async (req, res) => {
 
 
 
-// start server
 
-app.listen(process.env.PORT || 8000, function () {
 
-    console.log('API andando con express...');
-
-});
