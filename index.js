@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const clientsService = require('./services/tecnicos');
+const mysql = require('./src/mysql-connect.js');
 
 const app = express();
 
@@ -15,8 +16,8 @@ app.listen(process.env.PORT || 8000, function () {
 
 // configuracion de pug
 
-app.set('views','./vistas')
-app.set('view engine','pug')
+app.set('views', './vistas')
+app.set('view engine', 'pug')
 
 
 // Cinfiguracion de archivos estaticos
