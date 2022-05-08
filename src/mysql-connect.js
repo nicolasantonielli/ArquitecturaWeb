@@ -1,6 +1,6 @@
 
 
-var mysql      = require('mysql');
+const mysql      = require('mysql');
 
 //crear la conexion
 var connection = mysql.createConnection({
@@ -11,4 +11,12 @@ var connection = mysql.createConnection({
 });
 
 
+const conectar = () => {
+    connection.connect(err => {
+        if(err) throw err
+        console.log('Conectado')
+    })
+}
+
 export {conectar}
+
