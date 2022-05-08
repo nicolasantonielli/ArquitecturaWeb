@@ -8,7 +8,6 @@ const app = express();
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
 import {conectar} from './src/mysql-connect.js';
-import {desconectar} from './src/mysql-connect.js';
 
 // start server
 
@@ -115,8 +114,6 @@ app.post('/api/v1/cliente', (req, res) => {
 //        console.log("Creado Correctamente");
 //        });
     
-    desconectar();
-
 });
 
 
