@@ -18,5 +18,13 @@ const conectar = () => {
     })
 }
 
-export {conectar}
+const desconectar = () => {
+    connection.end(err => {
+        if(err) throw err
+        console.log('Desconectado')
+    })
+}
+
+export {conectar};
+export {desconectar};
 

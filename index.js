@@ -8,7 +8,7 @@ const app = express();
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
 import {conectar} from './src/mysql-connect.js';
-
+import {desconectar} from './src/mysql-connect.js';
 
 // start server
 
@@ -107,7 +107,7 @@ app.post('/api/v1/cliente', (req, res) => {
 
     let cliente = req.body;
    
-    conectar.connect();
+    conectar();
     
     conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
         if (err) throw err;
@@ -115,7 +115,7 @@ app.post('/api/v1/cliente', (req, res) => {
         console.log("Creado Correctamente");
         });
     
-    conectar.end();
+    desconectar();
 
 });
 
