@@ -1,6 +1,6 @@
 
 
-const mysql      = require('mysql');
+import mysql from mysql;
 
 //crear la conexion
 var connection = mysql.createConnection({
