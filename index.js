@@ -94,9 +94,20 @@ app.get('/maria', async (req, res) => {
 });
 
 
+// add new client - Content Type: json
+
+app.post('/api/v1/tickets', (req, res) => {
+
+    res.status(201).send(req.body);
+
+});
 
 
-
-
-
-
+//  
+//app.put('/user', function (req, res) {
+//    res.send('Got a PUT request at /user');
+//  });
+  
+//  app.delete('/user', function (req, res) {
+//    res.send('Got a DELETE request at /user');
+//  });
