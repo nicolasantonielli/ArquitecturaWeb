@@ -1,10 +1,15 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const clientsService = require('./services/tecnicos');
-const mysql = require('./src/mysql-connect.js');
 
 const app = express();
+
+// importar mysql
+const mysql = require('./src/mysql-connect.js');
+import {conectar} from ('./src/mysql-connect.js');
+
 
 // start server
 
@@ -103,14 +108,16 @@ app.post('/api/v1/cliente', (req, res) => {
 
     let cliente = req.body;
    
-    connection.connect();
+    conectar.connect();
     
-    connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
-    if (err) throw err;
-    res.status(201).send("Creado Correctamente");
-    console.log("Creado Correctamente");
-    });
-    connection.end();
+    conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
+        if (err) throw err;
+        res.status(201).send("Creado Correctamente");
+        console.log("Creado Correctamente");
+        });
+    
+    conectar.end();
+
 });
 
 
