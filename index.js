@@ -100,13 +100,13 @@ app.post('/api/v1/tickets', (req, res) => {
 
 
 
-connection.connect();
-
-connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('[value-1]','[value-2]','[value-3]')", function(err, rows, fields) {
-if (err) throw err;
-console.log('The solution is: ', rows[0].solution);
-});
-connection.end();
+//connection.connect();
+//
+//connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('[value-1]','[value-2]','[value-3]')", function(err, rows, fields) {
+//if (err) throw err;
+//console.log('The solution is: ', rows[0].solution);
+//});
+//connection.end();
 
     let ticket = req.body;
     
