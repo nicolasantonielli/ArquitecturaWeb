@@ -21,7 +21,7 @@ const conectar = function() {
 
 const agregarTicket = function(nroTicket,codCliente,fechaTicket,descripcionTicker){
 
-    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fecha`, `descripcionTicket`, `responsableTicket`) VALUES ('" + nroTicket + "','" + codCliente + "','" + fechaTicket + "','" + descripcionTicker + "')"
+    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fecha`, `descripcionTicket`, `responsableTicket`) VALUES (" + nroTicket + "," + codCliente + ",'" + fechaTicket + "','" + descripcionTicker + "')"
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log(result);
