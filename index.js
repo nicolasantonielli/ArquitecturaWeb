@@ -1,7 +1,7 @@
 
 import express from 'express';
-const bodyParser = require('body-parser');
-const moment = require('moment');
+import bodyParser from 'body-parser';
+import moment from 'moment';
 
 const app = express();
 
