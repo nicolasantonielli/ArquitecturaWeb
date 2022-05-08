@@ -81,7 +81,7 @@ app.post('/api/v1/tickets', function(req, res) {
     let ticket = req.body;
    
     conectar();
-    agregarTicket(ticket.nroTicket, ticket.codCliente, ticket.fechaTicket, ticket.descripcionTicker);
+    agregarTicket(ticket.nroTicket,ticket.codCliente,ticket.fechaTicket,ticket.responsableTicket,ticket.descripcionTicker);
 
 });
 
