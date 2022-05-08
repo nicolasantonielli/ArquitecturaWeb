@@ -1,6 +1,6 @@
 
 
-import mysql from mysql;
+import mysql from 'mysql';
 
 //crear la conexion
 var connection = mysql.createConnection({
