@@ -1,5 +1,5 @@
 
-
+import express from 'express';
 import mysql from 'mysql';
 
 //crear la conexion
@@ -26,7 +26,7 @@ const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicke
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log(result);
-        res.status(201).send(result);
+        //res.status(201).send(result);
     });
 }
 
