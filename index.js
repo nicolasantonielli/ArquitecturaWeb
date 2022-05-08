@@ -109,11 +109,11 @@ app.post('/api/v1/cliente', (req, res) => {
    
     conectar();
     
-    conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
-        if (err) throw err;
-        res.status(201).send("Creado Correctamente");
-        console.log("Creado Correctamente");
-        });
+//    conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
+//       if (err) throw err;
+//        res.status(201).send("Creado Correctamente");
+//        console.log("Creado Correctamente");
+//        });
     
     desconectar();
 
