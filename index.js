@@ -2,13 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const moment = require('moment');
-const clientsService = require('./services/tecnicos');
 
 const app = express();
 
 // importar mysql
-const mysql = require('./src/mysql-connect.js');
-import {conectar} from ('./src/mysql-connect.js');
+//const mysql = require('./src/mysql-connect.js');
+import {conectar} from './src/mysql-connect.js';
 
 
 // start server
