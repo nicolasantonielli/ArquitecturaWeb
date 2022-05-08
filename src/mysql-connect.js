@@ -11,11 +11,24 @@ var connection = mysql.createConnection({
 });
 
 
-const conectar = () => {
+const conectar = function() {
     connection.connect(err => {
         if(err) throw err
         console.log('Conectado')
     })
+};
+
+
+const agregarTicket = function(nroTicket,codCliente,fechaTicket,descripcionTicker){
+
+    let cadenaSql = "INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + nroTicket + "','" + codCliente + "','" + fechaTicket + "','" + descripcionTicker + "')"
+    connection.query(cadenaSql, function(err, result, fields){
+        if (err) throw err
+        console.log(result);
+        res.status(201).send(result);
+    });
 }
 
+
 export {conectar};
+export {agregarTicket};

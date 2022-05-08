@@ -7,8 +7,8 @@ const app = express();
 
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
-import {conectar} from './src/mysql-connect.js';
-
+import {agregarTicket, conectar} from './src/mysql-connect.js';
+export {agregarTicket} from './src/mysql-connect.js';
 // start server
 
 app.listen(process.env.PORT || 8000, function () {
@@ -69,59 +69,48 @@ app.get('/', async (req, res) => {
     );
 });
 
-app.get('/maria', async (req, res) => {
 
-    //let clients = await clientsService.getAll();
 
-    //let list = [];
 
-    // clients.forEach((c) => {
+// TICKETS
 
-    //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
+// Agregar Tickets
 
-    // });
+app.post('/api/v1/tickets', function(req, res) {
 
-    res.send(
-        `<html>
-            <head>
-                <title>Aplicacion Arquitectura WEB</title>
-            </head>
-            <body>
-                <ul>
-                    <p>HOLA MARIA</p>
-                </ul>            
-           </body>
-        </html>`
-    );
+    let ticket = req.body;
+   
+    conectar();
+    agregarTicket(ticket.nroTicket, ticket.codCliente, ticket.fechaTicket, ticket.descripcionTicker);
+
 });
-
-
-
 
 
 
 // Crear Cliente
 
-app.post('/api/v1/cliente', (req, res) => {
+app.post('/api/v1/cliente', function(req, res) {
 
     let cliente = req.body;
    
-    conectar();
+    //conectar();
     
-//    conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
-//       if (err) throw err;
-//        res.status(201).send("Creado Correctamente");
-//        console.log("Creado Correctamente");
-//        });
+    //
+
+    //conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
+    //if (err) throw err;
+    //res.status(201).send("Creado Correctamente");
+    //console.log("Creado Correctamente");
+    //    });
     
 });
 
 
-//  
-//app.put('/user', function (req, res) {
-//    res.send('Got a PUT request at /user');
-//  });
   
-//  app.delete('/user', function (req, res) {
-//    res.send('Got a DELETE request at /user');
-//  });
+app.put('/user', function (req, res) {
+    res.send('Got a PUT request at /user');
+  });
+  
+  app.delete('/user', function (req, res) {
+    res.send('Got a DELETE request at /user');
+});
