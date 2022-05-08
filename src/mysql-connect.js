@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('2028877082','nicolasA','pacheco de melo 2432');", function(err, rows, fields) {
+connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('2028877083','nicolasA','pacheco de melo 2432');", function(err, rows, fields) {
   if (err) throw err;
   console.log('ERROR...');
 });
