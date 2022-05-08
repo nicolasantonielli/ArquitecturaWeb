@@ -17,5 +17,12 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
   if (err) throw err;
   console.log('The solution is: ', rows[0].solution);
 });
+connection.end();
 
+connection.connect();
+
+connection.query('INSERT INTO "CLIENTE"("cuitCliente","nombreCliente","direccionCliente")VALUES("20288770817","nicolas","pacheco de melo 2432",);', function(err, rows, fields) {
+  if (err) throw err;
+  console.log('The solution is: ', rows[0].solution);
+});
 connection.end();
