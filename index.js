@@ -93,29 +93,24 @@ app.get('/maria', async (req, res) => {
 });
 
 
-// add new client - Content Type: json
-
-app.post('/api/v1/tickets', (req, res) => {
 
 
 
 
-//connection.connect();
-//
-//connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('[value-1]','[value-2]','[value-3]')", function(err, rows, fields) {
-//if (err) throw err;
-//console.log('The solution is: ', rows[0].solution);
-//});
-//connection.end();
+// Crear Cliente
 
-    let ticket = req.body;
+app.post('/api/v1/cliente', (req, res) => {
+
+    let cliente = req.body;
+   
+    connection.connect();
     
-
-    res.status(201).send(req.body);
-    console.log(ticket.cuitCliente);
-    console.log(ticket.nombreCliente);
-    console.log(ticket.direccionCliente);
-
+    connection.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
+    if (err) throw err;
+    res.status(201).send("Creado Correctamente");
+    console.log("Creado Correctamente");
+    });
+    connection.end();
 });
 
 
