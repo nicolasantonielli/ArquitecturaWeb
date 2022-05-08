@@ -113,6 +113,8 @@ app.post('/api/v1/tickets', (req, res) => {
 
     res.status(201).send(req.body);
     console.log(ticket.cuitCliente);
+    console.log(ticket.nombreCliente);
+    console.log(ticket.direccionCliente);
 
 });
 
