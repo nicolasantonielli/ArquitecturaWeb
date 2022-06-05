@@ -69,7 +69,7 @@ const listarTicketById = function(nroTicket){
         if (err) throw err
         console.log("Correcto.");
         console.log(result);
-        response(result);
+        res.send(result);
     });
 }
 
