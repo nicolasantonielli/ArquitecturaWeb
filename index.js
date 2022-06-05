@@ -1,5 +1,5 @@
 
-import express from 'express';
+import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import moment from 'moment';
 
@@ -87,8 +87,7 @@ app.post('/api/v1/tickets', function (req, res) {
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
     let resultado;
-
-    res.status(201).send(
+    res.json.send(
         resultado = listarTicketById(req.params.idTicket)
     );
 });
