@@ -1,6 +1,6 @@
 import mysql from 'mysql';
 
-let resultado;
+let resultadolistarTicketById;
 
 //crear la conexion
 var connection = mysql.createConnection({
@@ -66,10 +66,10 @@ const listarTicketById = function (nroTicket) {
     connection.query(cadenaSql, function (err, result, fields) {
         if (err) throw err
         console.log("Correcto.");
-        resultado = result
+        resultadolistarTicketById = result
 
     });
-    return resultado;
+    return resultadolistarTicketById;
 }
 
 /*

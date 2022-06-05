@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import moment from 'moment';
 
 const app = express();
-let resultado;
+let resultadolistarTicketById;
 
 
 // importar mysql
@@ -88,15 +88,11 @@ app.post('/api/v1/tickets', function (req, res) {
 
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
-
+    resultadolistarTicketById = listarTicketById(req.params.idTicket)
     //console.log (listarTicketById(req.params.idTicket)) 
+    console.log(resultadolistarTicketById)
     
-    let cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicket = " + req.params.idTicket + ";"
-    console.log(cadenaSql);
-    connection.query(cadenaSql, function (err, result, fields) {
-        if (err) throw err
-        res.status(200).send(result)
-    });
+
 });
 
 
