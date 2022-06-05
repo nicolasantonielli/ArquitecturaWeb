@@ -7,23 +7,23 @@ const app = express();
 
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
-import {agregarTicket, conectar} from './src/mysql-connect.js';
-export {agregarTicket} from './src/mysql-connect.js';
+import { agregarTicket, conectar } from './src/mysql-connect.js';
+export { agregarTicket } from './src/mysql-connect.js';
 // start server
 
 app.listen(process.env.PORT || 8000, function () {
 
-    console.log('API andando con express...');
+    console.log('API funcionando con express...');
 });
 
 
-// configuracion de pug
+// Configuracion de pug
 
 app.set('views', './vistas')
 app.set('view engine', 'pug')
 
 
-// Cinfiguracion de archivos estaticos
+// Configuracion de archivos estaticos
 app.use(express.static('./vistas'))
 app.use(express.static('./src'))
 app.use(express.static('./css'))
@@ -41,78 +41,26 @@ app.use((req, res, next) => {
 });
 
 
-// get home
-
-app.get('/', async (req, res) => {
-
-    //let clients = await clientsService.getAll();
-
-    //let list = [];
-
-    // clients.forEach((c) => {
-
-    //   list.push(`<li>${c.nombre} con id: ${c.id}</li>`);
-
-    // });
-
-    res.send(
-        `<html>
-            <head>
-                <title>Aplicacion Arquitectura WEB</title>
-            </head>
-            <body>
-                <ul>
-                    <p>HOLA!!!123</p>
-                </ul>            
-           </body>
-        </html>`
-    );
-});
-
-
-
-
 // TICKETS
 
 // Agregar Tickets
 
-app.post('/api/v1/tickets', function(req, res) {
+app.post('/api/v1/tickets', function (req, res) {
 
     let ticket = req.body;
-   
+
     conectar();
     res.status(201).send(
-        agregarTicket(ticket.nroTicket,ticket.codCliente,ticket.fechaTicket,ticket.responsableTicket,ticket.descripcionTicker
-        ));
+        agregarTicket(ticket.nroTicket, ticket.codCliente, ticket.fechaTicket, ticket.responsableTicket, ticket.descripcionTicker)
+        );
 
 });
 
 
-
-// Crear Cliente
-
-app.post('/api/v1/cliente', function(req, res) {
-
-    let cliente = req.body;
-   
-    //conectar();
-    
-    //
-
-    //conectar.query("INSERT INTO `CLIENTE`(`cuitCliente`, `nombreCliente`, `direccionCliente`) VALUES ('" + cliente.cuitCliente + "','" + cliente.nombreCliente + "','" + cliente.direccionCliente + "')", function(err, rows, fields) {
-    //if (err) throw err;
-    //res.status(201).send("Creado Correctamente");
-    //console.log("Creado Correctamente");
-    //    });
-    
-});
-
-
-  
 app.put('/user', function (req, res) {
     res.send('Got a PUT request at /user');
-  });
-  
-  app.delete('/user', function (req, res) {
+});
+
+app.delete('/user', function (req, res) {
     res.send('Got a DELETE request at /user');
 });
