@@ -7,7 +7,8 @@ const app = express();
 
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
-import { agregarTicket, conectar } from './src/mysql-connect.js';
+import { agregarTicket, borrarTicket, conectar } from './src/mysql-connect.js';
+
 export { agregarTicket } from './src/mysql-connect.js';
 // start server
 
