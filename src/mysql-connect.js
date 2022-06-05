@@ -20,7 +20,7 @@ const conectar = function() {
 
 const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicket,descripcionTicker){
 
-    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fechaTicket`, `descripcionTicket`, `responsableTicket`, `codCliente`, `codEstado`) VALUES (" + nroTicket + ",'" + fechaTicket + "','" + descripcionTicker + "','" + responsableTicket + "'," + codCliente + ",'abierto')"
+    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fechaTicket`, `descripcionTicket`, `responsableTicket`, `codCliente`, `codEstado`) VALUES (" + nroTicket + ",'" + fechaTicket + "','" + descripcionTicker + "','" + responsableTicket + "'," + codCliente + ",'abierto');"
     console.log(cadenaSql);
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
@@ -29,6 +29,20 @@ const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicke
     });
 }
 
+const borrarTicket = function(nroTicket){
+
+    let cadenaSql = "DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` =" + nroTicket + ";"
+    console.log(cadenaSql);
+    connection.query(cadenaSql, function(err, result, fields){
+        if (err) throw err
+        console.log("Correcto.");
+//        res.status(201).send("Creado Correctamente");
+    });
+}
+
+// DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` = 1;
+
 
 export {conectar};
+export {borrarTicket};
 export {agregarTicket};

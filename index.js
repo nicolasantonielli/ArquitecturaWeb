@@ -57,10 +57,14 @@ app.post('/api/v1/tickets', function (req, res) {
 });
 
 
-app.put('/user', function (req, res) {
+app.put('/api/v1/tickets/', function (req, res) {
     res.send('Got a PUT request at /user');
 });
 
-app.delete('/user', function (req, res) {
-    res.send('Got a DELETE request at /user');
+app.delete('/api/v1/tickets/:idTicket', function (req, res) {
+
+    conectar();
+    res.status(201).send(
+        borrarTicket(req.params.idTicket)
+        );
 });
