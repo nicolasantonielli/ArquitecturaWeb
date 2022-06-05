@@ -10,6 +10,7 @@ let resultadolistarTicketById;
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
 import { listarTickets, agregarTicket, listarTicketById, modificarTicketById, borrarTicketById, conectar } from './src/mysql-connect.js';
+import json from 'body-parser/lib/types/json';
 
 //export { agregarTicket } from './src/mysql-connect.js';
 // start server
@@ -89,6 +90,7 @@ app.post('/api/v1/tickets', function (req, res) {
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
     resultadolistarTicketById = listarTicketById(req.params.idTicket)
+    json(resultadolistarTicketById)
     //console.log (listarTicketById(req.params.idTicket)) 
     console.log(resultadolistarTicketById)
     
