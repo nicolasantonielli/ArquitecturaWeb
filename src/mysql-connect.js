@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import mysql from 'mysql';
 
@@ -69,6 +69,7 @@ const listarTicketById = function(nroTicket){
         if (err) throw err
         console.log("Correcto.");
         console.log(result);
+        response(result);
     });
 }
 
