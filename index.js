@@ -88,9 +88,8 @@ app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
     let resultado = listarTicketById(req.params.idTicket)
 
-    console.log(resultado);
-    sleep(5)
-    res.json(resultado);
+    console.log(resultado)
+    console.log("resultado")
 });
 
 
