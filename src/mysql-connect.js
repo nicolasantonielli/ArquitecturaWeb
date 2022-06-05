@@ -2,6 +2,8 @@ import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import mysql from 'mysql';
 
+let resultado;
+
 //crear la conexion
 var connection = mysql.createConnection({
     host: 'localhost',
@@ -63,15 +65,16 @@ const agregarTicket = function (nroTicket, fechaTicket, descripcionTicker, respo
 
 const listarTicketById = function (nroTicket) {
 
-    var cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicket = " + nroTicket + ";"
+    let cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicket = " + nroTicket + ";"
     console.log(cadenaSql);
     connection.query(cadenaSql, function (err, result, fields) {
         if (err) throw err
         console.log("Correcto.");
         console.log(result)
+        resultado = result
 
     });
-    return result;
+    return resultado;
 }
 
 /*
