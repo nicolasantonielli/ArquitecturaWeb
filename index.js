@@ -54,7 +54,7 @@ app.get('/api/v1/tickets', function (req, res) {
 
     let ticket = req.body;
 
-    conectar();
+
     res.status(201).send(
         listarTickets()
     );
@@ -71,7 +71,7 @@ app.post('/api/v1/tickets', function (req, res) {
 
     let ticket = req.body;
 
-    conectar();
+
     res.status(201).send(
         agregarTicket(ticket.nroTicket, ticket.fechaTicket, ticket.descripcionTicker, ticket.responsableTicket, ticket.codCliente)
     );
@@ -86,7 +86,7 @@ app.post('/api/v1/tickets', function (req, res) {
 
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
-    conectar();
+
     res.status(201).send(
         listarTicketById(req.params.idTicket)
     );
@@ -104,7 +104,7 @@ app.put('/api/v1/tickets/:idTicket', function (req, res) {
 
     let ticket = req.body;
 
-    conectar();
+
     res.status(201).send(
         modificarTicketById(req.params.idTicket, ticket.fechaTicket, ticket.descripcionTicker, ticket.responsableTicket, ticket.codCliente, ticket.codEstado)
     );
