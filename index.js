@@ -96,7 +96,7 @@ app.get('/api/v1/tickets/:idTicket', function (req, res) {
     connection.query(cadenaSql, function (err, result, fields) {
         if (err) throw err
         res.status(200).send(result)
-    
+    }
 });
 
 
