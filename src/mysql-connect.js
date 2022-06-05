@@ -29,12 +29,11 @@ const listarTickets = function () {
 
     let cadenaSql = "SELECT * FROM `TICKET`;"
     console.log(cadenaSql);
-    connection.
-        connection.query(cadenaSql, function (err, result, fields) {
-            if (err) throw err
-            console.log("Correcto.");
-            resultadolistarTickets = result
-        });
+    connection.query(cadenaSql, function (err, result, fields) {
+        if (err) throw err
+        console.log("Correcto.");
+        resultadolistarTickets = result
+    });
     return resultadolistarTickets;
 }
 
