@@ -86,10 +86,9 @@ app.post('/api/v1/tickets', function (req, res) {
 
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
-    let resultado = listarTicketById(req.params.idTicket)
-
-    console.log(resultado + "hola")
-    console.log("resultado")
+    let result = listarTicketById(req.params.idTicket)
+    console.log (result)      
+    
 });
 
 
