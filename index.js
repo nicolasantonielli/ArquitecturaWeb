@@ -5,6 +5,7 @@ import moment from 'moment';
 
 const app = express();
 let resultadolistarTicketById;
+let resultadolistarTickets;
 
 
 // importar mysql
@@ -54,12 +55,9 @@ app.use((req, res, next) => {
 
 app.get('/api/v1/tickets', function (req, res) {
 
-    let ticket = req.body;
+    resultadolistarTickets = listarTickets()
 
-
-    res.status(201).send(
-        listarTickets()
-    );
+    res.status(201).send(resultadolistarTickets)
 
 });
 
@@ -89,8 +87,8 @@ app.post('/api/v1/tickets', function (req, res) {
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
     resultadolistarTicketById = listarTicketById(req.params.idTicket)
-    console.info (listarTicketById(req.params.idTicket)) 
-    res.send(resultadolistarTicketById)
+    
+    res.status(201).send(resultadolistarTicketById)
     
 
 });
