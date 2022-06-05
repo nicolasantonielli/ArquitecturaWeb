@@ -68,7 +68,8 @@ const listarTicketById = function(nroTicket){
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-        console.log(result);
+        console.log(fields);
+
         return result;
     });
 }
