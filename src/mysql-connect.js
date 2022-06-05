@@ -32,7 +32,7 @@ const listarTickets = function(){
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-        res.status(201).send("Creado Correctamente");
+        //res.status(201).send("Creado Correctamente");
     });
 }
 
@@ -51,7 +51,7 @@ const agregarTicket = function(nroTicket,fechaTicket,descripcionTicker,responsab
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-        res.status(201).send("Creado Correctamente");
+        //res.status(201).send("Creado Correctamente");
     });
 }
 
@@ -69,7 +69,7 @@ const listarTicketById = function(nroTicket){
         if (err) throw err
         console.log("Correcto.");
         console.log(result);
-        res.send(result);
+        return result;
     });
 }
 
