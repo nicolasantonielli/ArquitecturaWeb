@@ -90,7 +90,7 @@ app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
     res.status(201).send(
         resultado = listarTicketById(req.params.idTicket)
-            res.send(resultado);
+            res.send(resultado)
     );
 });
 
