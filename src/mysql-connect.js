@@ -70,7 +70,7 @@ const listarTicketById = function(nroTicket){
         console.log("Correcto.");
         console.log(fields);
 
-        return result;
+        return fields.db;
     });
 }
 
