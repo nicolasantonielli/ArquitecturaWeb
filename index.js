@@ -10,7 +10,6 @@ let resultadolistarTicketById;
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
 import { listarTickets, agregarTicket, listarTicketById, modificarTicketById, borrarTicketById, conectar } from './src/mysql-connect.js';
-import json from 'body-parser/lib/types/json';
 
 //export { agregarTicket } from './src/mysql-connect.js';
 // start server
