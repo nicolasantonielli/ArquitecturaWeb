@@ -1,4 +1,5 @@
-
+import express from 'express';
+import bodyParser from 'body-parser';
 import mysql from 'mysql';
 
 //crear la conexion
@@ -17,6 +18,11 @@ const conectar = function() {
     })
 };
 
+/*
+*
+*   Listar todos los Tickets
+*
+*/
 
 const listarTickets = function(){
 
@@ -26,9 +32,16 @@ const listarTickets = function(){
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-//        res.status(201).send("Creado Correctamente");
+        res.status(201).send("Creado Correctamente");
     });
 }
+
+
+/*
+*
+*   Crear Ticket
+*
+*/
 
 const agregarTicket = function(nroTicket,fechaTicket,descripcionTicker,responsableTicket,codCliente){
 
@@ -38,21 +51,32 @@ const agregarTicket = function(nroTicket,fechaTicket,descripcionTicker,responsab
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-//        res.status(201).send("Creado Correctamente");
+        res.status(201).send("Creado Correctamente");
     });
 }
 
-
+/*
+*
+*   Listar Ticket por Id
+*
+*/
 
 const listarTicketById = function(nroTicket){
 
-    let cadenaSql = "DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` =" + nroTicket + ";"
+    let cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicker = " + nroTicket + ";"
     console.log(cadenaSql);
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
+        console.log(result);
     });
 }
+
+/*
+*
+*   Modificar Ticket por ID
+*
+*/
 
 const modificarTicketById = function(nroTicket,fechaTicket,descripcionTicker,responsableTicket,codCliente,codEstado){
 
@@ -65,6 +89,11 @@ const modificarTicketById = function(nroTicket,fechaTicket,descripcionTicker,res
     });
 }
 
+/*
+*
+*   Borrar Ticket por ID
+*
+*/
 
 const borrarTicketById = function(nroTicket){
 
