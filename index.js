@@ -7,9 +7,9 @@ const app = express();
 
 // importar mysql
 //const mysql = require('./src/mysql-connect.js');
-import { agregarTicket, borrarTicket, conectar } from './src/mysql-connect.js';
+import { listarTickets, agregarTicket, listarTicketById, modificarTicketById, borrarTicketById, conectar } from './src/mysql-connect.js';
 
-export { agregarTicket } from './src/mysql-connect.js';
+//export { agregarTicket } from './src/mysql-connect.js';
 // start server
 
 app.listen(process.env.PORT || 8000, function () {
@@ -44,7 +44,28 @@ app.use((req, res, next) => {
 
 // TICKETS
 
-// Agregar Tickets
+/*
+*
+*   Listar todos los Tickets
+*
+*/
+
+app.get('/api/v1/tickets', function (req, res) {
+
+    let ticket = req.body;
+
+    conectar();
+    res.status(201).send(
+        listarTickets()
+    );
+
+});
+
+/*
+*
+*   Crear Ticket
+*
+*/
 
 app.post('/api/v1/tickets', function (req, res) {
 
@@ -52,20 +73,54 @@ app.post('/api/v1/tickets', function (req, res) {
 
     conectar();
     res.status(201).send(
-        agregarTicket(ticket.nroTicket, ticket.codCliente, ticket.fechaTicket, ticket.responsableTicket, ticket.descripcionTicker)
-        );
+        agregarTicket(ticket.nroTicket, ticket.fechaTicket, ticket.descripcionTicker, ticket.responsableTicket, ticket.codCliente)
+    );
 
 });
 
+/*
+*
+*   Listar Ticket por Id
+*
+*/
 
-app.put('/api/v1/tickets/', function (req, res) {
-    res.send('Got a PUT request at /user');
+app.get('/api/v1/tickets/:idTicket', function (req, res) {
+
+    conectar();
+    res.status(201).send(
+        listarTicketById(req.params.idTicket)
+    );
 });
+
+
+/*
+*
+*   Modificar Ticket por ID
+*
+*/
+
+
+app.put('/api/v1/tickets/:idTicket', function (req, res) {
+
+    let ticket = req.body;
+
+    conectar();
+    res.status(201).send(
+        modificarTicketById(req.params.idTicket, ticket.fechaTicket, ticket.descripcionTicker, ticket.responsableTicket, ticket.codCliente, ticket.codEstado)
+    );
+});
+
+
+/*
+*
+*   Borrar Ticket por ID
+*
+*/
 
 app.delete('/api/v1/tickets/:idTicket', function (req, res) {
 
     conectar();
     res.status(201).send(
-        borrarTicket(req.params.idTicket)
-        );
+        borrarTicketById(req.params.idTicket)
+    );
 });

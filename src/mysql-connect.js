@@ -18,10 +18,11 @@ const conectar = function() {
 };
 
 
-const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicket,descripcionTicker){
+const listarTickets = function(){
 
-    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fechaTicket`, `descripcionTicket`, `responsableTicket`, `codCliente`, `codEstado`) VALUES (" + nroTicket + ",'" + fechaTicket + "','" + descripcionTicker + "','" + responsableTicket + "'," + codCliente + ",'abierto');"
+    let cadenaSql = "SELECT * FROM `TICKET` "
     console.log(cadenaSql);
+    connection.
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
@@ -29,20 +30,57 @@ const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicke
     });
 }
 
-const borrarTicket = function(nroTicket){
+const agregarTicket = function(nroTicket,fechaTicket,descripcionTicker,responsableTicket,codCliente){
+
+    let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fechaTicket`, `descripcionTicket`, `responsableTicket`, `codCliente`, `codEstado`) VALUES (" + nroTicket + ",'" + fechaTicket + "','" + descripcionTicker + "','" + responsableTicket + "'," + codCliente + ",'abierto');"
+    console.log(cadenaSql);
+    connection.
+    connection.query(cadenaSql, function(err, result, fields){
+        if (err) throw err
+        console.log("Correcto.");
+//        res.status(201).send("Creado Correctamente");
+    });
+}
+
+
+
+const listarTicketById = function(nroTicket){
 
     let cadenaSql = "DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` =" + nroTicket + ";"
     console.log(cadenaSql);
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-//        res.status(201).send("Creado Correctamente");
     });
 }
 
-// DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` = 1;
+const modificarTicketById = function(nroTicket,fechaTicket,descripcionTicker,responsableTicket,codCliente,codEstado){
+
+    let cadenaSql = "UPDATE `TICKET` SET `fechaTicket` = '" + fechaTicket + "', `descripcionTicket` = '" + descripcionTicker + "', `responsableTicket` = '" + responsableTicket + "', `codCliente` = '" + codCliente + "', `codEstado` = '" + codEstado + "' WHERE `TICKET`.`nroTicket` = " + nroTicket + ";"
+     
+    console.log(cadenaSql);
+    connection.query(cadenaSql, function(err, result, fields){
+        if (err) throw err
+        console.log("Correcto.");
+    });
+}
+
+
+const borrarTicketById = function(nroTicket){
+
+    let cadenaSql = "DELETE FROM `TICKET` WHERE `TICKET`.`nroTicket` =" + nroTicket + ";"
+    console.log(cadenaSql);
+    connection.query(cadenaSql, function(err, result, fields){
+        if (err) throw err
+        console.log("Correcto.");
+    });
+}
 
 
 export {conectar};
-export {borrarTicket};
+
+export {listarTickets};
 export {agregarTicket};
+export {listarTicketById};
+export {modificarTicketById};
+export {borrarTicketById};
