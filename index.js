@@ -86,11 +86,9 @@ app.post('/api/v1/tickets', function (req, res) {
 
 app.get('/api/v1/tickets/:idTicket', function (req, res) {
 
-    let resultado;
 
     res.status(201).send(
-        resultado = listarTicketById(req.params.idTicket)
-            res.send(resultado)
+        listarTicketById(req.params.idTicket)
     );
 });
 
