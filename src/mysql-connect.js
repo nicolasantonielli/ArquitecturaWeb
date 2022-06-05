@@ -35,7 +35,7 @@ const listarTickets = function () {
             console.log("Correcto.");
             resultadolistarTickets = result
         });
-        return resultadolistarTickets;
+    return resultadolistarTickets;
 }
 
 
@@ -49,11 +49,10 @@ const agregarTicket = function (nroTicket, fechaTicket, descripcionTicker, respo
 
     let cadenaSql = "INSERT INTO `TICKET`(`nroTicket`, `fechaTicket`, `descripcionTicket`, `responsableTicket`, `codCliente`, `codEstado`) VALUES (" + nroTicket + ",'" + fechaTicket + "','" + descripcionTicker + "','" + responsableTicket + "'," + codCliente + ",'abierto');"
     console.log(cadenaSql);
-    connection.
-        connection.query(cadenaSql, function (err, result, fields) {
-            if (err) throw err
-            console.log("Correcto.");
-        });
+    connection.query(cadenaSql, function (err, result, fields) {
+        if (err) throw err
+        console.log("Correcto.");
+    });
 }
 
 /*
