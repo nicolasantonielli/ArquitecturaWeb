@@ -63,7 +63,7 @@ const agregarTicket = function (nroTicket, fechaTicket, descripcionTicker, respo
 
 const listarTicketById = function (nroTicket) {
 
-    let cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicket = " + nroTicket + ";"
+    var cadenaSql = "SELECT * FROM `TICKET` WHERE nroTicket = " + nroTicket + ";"
     console.log(cadenaSql);
     connection.query(cadenaSql, function (err, result, fields) {
         if (err) throw err
