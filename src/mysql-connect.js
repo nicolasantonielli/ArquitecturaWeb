@@ -27,7 +27,7 @@ const conectar = function () {
 
 const listarTickets = function () {
 
-    let cadenaSql = "SELECT * FROM `TICKET` "
+    let cadenaSql = "SELECT * FROM `TICKET`;"
     console.log(cadenaSql);
     connection.
         connection.query(cadenaSql, function (err, result, fields) {
