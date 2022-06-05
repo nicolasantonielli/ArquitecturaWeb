@@ -25,7 +25,7 @@ const agregarTicket = function(nroTicket,codCliente,fechaTicket,responsableTicke
     connection.query(cadenaSql, function(err, result, fields){
         if (err) throw err
         console.log("Correcto.");
-        res.status(201).send("Creado Correctamente");
+//        res.status(201).send("Creado Correctamente");
     });
 }
 
