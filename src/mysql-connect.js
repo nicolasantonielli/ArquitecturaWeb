@@ -67,8 +67,9 @@ const listarTicketById = function (nroTicket) {
         if (err) throw err
         console.log("Correcto.");
         resultadolistarTicketById = result
-
+        console.log(resultadolistarTicketById)
     });
+
     return resultadolistarTicketById;
 }
 
